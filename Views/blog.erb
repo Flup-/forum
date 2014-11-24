@@ -1,0 +1,42 @@
+<head>
+  <style>
+    body{
+        background-color: lightsteelblue;
+        color: black;
+    }
+    div{
+        word-wrap: break-word;
+        width: 75%;
+        position: relative;
+        left: 300px;
+    }
+    form{
+        position: relative;
+        top: 130px;
+
+    }
+    .title{
+        text-align: center;
+        font-family: Lucida Console;
+        position: relative;
+        top: 10%;
+    }
+  </style>
+</head>
+<body>
+<h1 class="title">Jimmeh's Luscious Loins</h1>
+<form method="post" action="/" id="form">
+  Name: <input type="text" name="name"><br>
+  Subject: <input type="text" name="subject"><br>
+  Text: <textarea form="form" type="text" name="text"></textarea><br>
+  <input type="submit" value="Submit">
+</form>
+<div>
+<% @db.reverse_each do |row| %>
+   <h1 class="dbh1"><%= row[:subject] %><br></h1>
+    <h3 class="dbh3"><%= "Posted By: " + row[:name] %><br></h3>
+    <p class="dbp"><%= row[:text] %><br></p>
+    <hr>
+<% end %>
+</div>
+</body>
